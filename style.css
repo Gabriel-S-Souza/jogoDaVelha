@@ -21,7 +21,7 @@ body{
     margin-bottom: 20px;
 }
 
-.conteiner{
+#conteiner{
     display: flex;   
     flex-wrap: wrap;
     width: 360px;
