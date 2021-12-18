@@ -36,28 +36,43 @@ var rodaJogo = (e) =>{
 function validaJogo(player){
     if(player.listaIds.includes(0)){
         if(player.listaIds.includes(1) && player.listaIds.includes(2)){
-            let camposVitoria = [campos[0], campos[1], campos[2]]
-            camposVitoria.forEach(function(campo){
-                if(campo.className.includes("adicionaX")){
-                    campo.classList.remove("adicionaX")
-                    campo.classList.add("adicionaXred")
-                }else if(campo.className.includes("adicionaO")){
-                    campo.classList.remove("adicionaO")
-                    campo.classList.add("adicionaOred")
-                }
-            })
-        }  
+            colorWinner(0, 1, 2, player)
+            return true
+            
+        }else if(player.listaIds.includes(3) && player.listaIds.includes(6)){
+            colorWinner(0, 3, 6, player)
+            return true
+        }else if(player.listaIds.includes(4) && player.listaIds.includes(8)){
+            colorWinner(0, 4, 8, player)
+            return true
+        }
+    }else if(player.listaIds.includes(2)){
+        if(player.listaIds.includes(4) && player.listaIds.includes(6)){
+            colorWinner(2, 4, 6, player)
+            return true
+        }else if(player.listaIds.includes(5) && player.listaIds.includes(8)){
+            colorWinner(2, 5, 8, player)
+            return true
+        }
+    }else if(player.listaIds.includes(3)){
+        if(player.listaIds.includes(4) && player.listaIds.includes(5)){
+            colorWinner(3, 4, 5, player)
+            return true
+        }
+    }else if(player.listaIds.includes(6)){
+        if(player.listaIds.includes(7) && player.listaIds.includes(8)){
+            colorWinner(6, 7, 8, player)
+            return true
+        }
+    }else if(player.listaIds.includes(1)){
+        if(player.listaIds.includes(4) && player.listaIds.includes(7)){
+            colorWinner(1, 4, 7, player)
+            return true
+        }
     }
-
-    
-
-    // let verificador1 = ids1.includes(0 && 1 && 2) || ids1.includes(3 && 4 && 5) || ids1.includes(6 && 7 && 8) ||  ids1.includes(0 && 3 && 6) || ids1.includes(1 && 4 && 7) || ids1.includes(2 && 5 && 8) || ids1.includes(0 && 4 && 8) || ids1.includes(2 && 4 && 6)
-    // let verificador2 = ids2.includes(0 && 1 && 2) || ids2.includes(3 && 4 && 5) || ids2.includes(6 && 7 && 8) ||  ids2.includes(0 && 3 && 6) || ids2.includes(1 && 4 && 7) || ids2.includes(2 && 5 && 8) || ids2.includes(0 && 4 && 8) || ids2.includes(2 && 4 && 6)
-    // console.log(verificador2)
     console.log(player.listaIds)
     if(player1.listaIds.length + player2.listaIds.length == 9){
         logDeInformacoes.textContent = "Game Over"
-        console.log("validaJogo")
         return true
     }else{
         return false
@@ -77,9 +92,27 @@ function reinicia(){
         rodaJogo
         campos.forEach(function(campo){
             campo.classList.remove("adicionaX")
+            campo.classList.remove("adicionaXred")
             campo.classList.remove("adicionaO")
+            campo.classList.remove("adicionaOred")
         })
     },1500)
 }
+
+function colorWinner(i, j, k, player){
+    let camposVitoria = [campos[i], campos[j], campos[k]]
+    camposVitoria.forEach(function(campo){
+        if(campo.className.includes("adicionaX")){
+            campo.classList.remove("adicionaX")
+            campo.classList.add("adicionaXred")
+        }else if(campo.className.includes("adicionaO")){
+            campo.classList.remove("adicionaO")
+            campo.classList.add("adicionaOred")
+        }
+    })
+    logDeInformacoes.textContent = player.nome + " venceu"
+}
+
+
 
 setLogDeInformacoes()
