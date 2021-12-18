@@ -4,41 +4,72 @@ var player1 = {boleano:true, listasIds: [], nome: "Player1", status: ""}
 var player2 = {boleano:false, listasIds: [], nome: "Player2", status: ""}
 var gameOver = false
 
-function ligaJogo(player1, player2){ //liga o jogo
+function ligaJogo(player1, player2){
     if(gameOver == false){
-        var jogador = rodadas(player1, player2)
+        var jogador = rodaJogo(player1, player2)
     }
 }
 
-function rodadas(player1, player2){ //o jogo roda aqui
+function rodaJogo(player1, player2){
     if(player1.boleano && !player2.boleano){
         logDeInformacoes.textContent = "Rodada: player 1"
         var resultado = marcaCampo(player1)
         player1.boleano = resultado.boleano
-        Array.prototype.push.apply(player1.listasIds, resultado.ids)
+        player2.listasIds.push(...resultado.ids)
         var vitoria = verificaVitoria(player1)
         if(vitoria.status == "ganhou"){
             logDeInformacoes.style.backgroundColor = "green"
             logDeInformacoes.textContent = vitoria.nome + " venceu"
+            //fazer aqui as demais ações de gameover
             gameOver = true
         }
         else{
-            ligaJogo(player1, player1)
-            console.log(player1)
+            player1 = vitoria
+            player2.boleano = true
+            return
+            rodaJogo(player1, player2)
+
+        }
+    }else if(!player1.boleano && player2.boleano){
+        logDeInformacoes.textContent = "Rodada: player 2"
+        var resultado2 = marcaCampo(player2)
+        player2.boleano = resultado2.boleano
+        player2.listasIds.push(...resultado.ids)
+        var vitoria2 = verificaVitoria(player2)
+        if(vitoria2.status == "ganhou"){
+            logDeInformacoes.style.backgroundColor = "green"
+            logDeInformacoes.textContent = vitoria2.nome + " venceu"
+            //fazer aqui as demais ações de gameover
+            gameOver = true
+        }
+        else{
+            player2 = vitoria2
+            player1.boleano = true
+            rodaJogo(player1, player2)
+
         }
     }
 }
+var area = null
 
+var addClass = (e) =>{
+    area = e.target
+    campos.forEach(function(campo){
+        campo.removeEventListener("click", addClass)
+    })
+    console.log(area)
 
-function marcaCampo (player){ // marca os espaços no jogo da velha e pega os respectivos ids
-    player = {
-        boleano: false,
-        ids: [2, 0, 8, 7, 5]
-    }
-    return player
 }
 
-function verificaVitoria(player){ //Verifica nas listas dos players se um deles ganhou
+
+function marcaCampo (player){
+    campos.forEach(function(campo){
+        campo.addEventListener("click", addClass)
+
+    })
+}
+
+function verificaVitoria(player){ 
     player.status = ""
     return player
 }
