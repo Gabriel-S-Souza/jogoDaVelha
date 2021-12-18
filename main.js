@@ -1,7 +1,7 @@
 var logDeInformacoes = document.querySelector('.log-de-informacoes')
 var campos = document.querySelectorAll(".campo")
-var player1 = {boleano: true, listaIds: [], nome: "Player1", status: ""}
-var player2 = {boleano: false, listaIds: [], nome: "Player2", status: ""}
+var player1 = {boleano: true, listaIds: [], nome: "Player1"}
+var player2 = {boleano: false, listaIds: [], nome: "Player2"}
 var gameOver = false
 
 function setLogDeInformacoes(){
@@ -61,7 +61,7 @@ function validaJogo(player){
         colorWinner(1, 4, 7, player)
         return true
     }
-    console.log(player.listaIds)
+
     if(player1.listaIds.length + player2.listaIds.length == 9){
         logDeInformacoes.textContent = "Game Over"
         return true
@@ -75,7 +75,6 @@ campos.forEach(function(campo){
 })
 
 function reinicia(){
-    console.log("reinicia")
     player1.listaIds = []
     player2.listaIds = []
     setTimeout(function(){
