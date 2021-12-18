@@ -5,6 +5,7 @@ var player2 = {boleano: false, listaIds: [], nome: "Player2", status: ""}
 var gameOver = false
 
 function setLogDeInformacoes(){
+    logDeInformacoes.classList.remove("animateClass")
     if(player1.boleano && !player2.boleano){
         logDeInformacoes.textContent = player1.nome + " joga"
     }else if(!player1.boleano && player2.boleano){
@@ -105,6 +106,7 @@ function colorWinner(i, j, k, player){
         }
     })
     logDeInformacoes.textContent = player.nome + " venceu"
+    logDeInformacoes.classList.add("animateClass")
 }
 
 setLogDeInformacoes()
