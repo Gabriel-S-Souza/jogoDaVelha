@@ -35,41 +35,30 @@ var rodaJogo = (e) =>{
 }
 
 function validaJogo(player){
-    if(player.listaIds.includes(0)){
-        if(player.listaIds.includes(1) && player.listaIds.includes(2)){
-            colorWinner(0, 1, 2, player)
-            return true
-            
-        }else if(player.listaIds.includes(3) && player.listaIds.includes(6)){
-            colorWinner(0, 3, 6, player)
-            return true
-        }else if(player.listaIds.includes(4) && player.listaIds.includes(8)){
-            colorWinner(0, 4, 8, player)
-            return true
-        }
-    }else if(player.listaIds.includes(2)){
-        if(player.listaIds.includes(4) && player.listaIds.includes(6)){
-            colorWinner(2, 4, 6, player)
-            return true
-        }else if(player.listaIds.includes(5) && player.listaIds.includes(8)){
-            colorWinner(2, 5, 8, player)
-            return true
-        }
-    }else if(player.listaIds.includes(3)){
-        if(player.listaIds.includes(4) && player.listaIds.includes(5)){
-            colorWinner(3, 4, 5, player)
-            return true
-        }
-    }else if(player.listaIds.includes(6)){
-        if(player.listaIds.includes(7) && player.listaIds.includes(8)){
-            colorWinner(6, 7, 8, player)
-            return true
-        }
-    }else if(player.listaIds.includes(1)){
-        if(player.listaIds.includes(4) && player.listaIds.includes(7)){
-            colorWinner(1, 4, 7, player)
-            return true
-        }
+    if(player.listaIds.includes(0) && player.listaIds.includes(1) && player.listaIds.includes(2)){
+        colorWinner(0, 1, 2, player)
+        return true 
+    }else if(player.listaIds.includes(0) && player.listaIds.includes(3) && player.listaIds.includes(6)){
+        colorWinner(0, 3, 6, player)
+        return true
+    }else if(player.listaIds.includes(0) &&  player.listaIds.includes(4) && player.listaIds.includes(8)){
+        colorWinner(0, 4, 8, player)
+        return true
+    }else if(player.listaIds.includes(2) && player.listaIds.includes(4) && player.listaIds.includes(6)){
+        colorWinner(2, 4, 6, player)
+        return true
+    }else if(player.listaIds.includes(2) && player.listaIds.includes(5) && player.listaIds.includes(8)){
+        colorWinner(2, 5, 8, player)
+        return true
+    }else if(player.listaIds.includes(3) && player.listaIds.includes(4) && player.listaIds.includes(5)){
+        colorWinner(3, 4, 5, player)
+        return true
+    }else if(player.listaIds.includes(6) && player.listaIds.includes(7) && player.listaIds.includes(8)){
+        colorWinner(6, 7, 8, player)
+        return true
+    }else if(player.listaIds.includes(1) && player.listaIds.includes(4) && player.listaIds.includes(7)){
+        colorWinner(1, 4, 7, player)
+        return true
     }
     console.log(player.listaIds)
     if(player1.listaIds.length + player2.listaIds.length == 9){
