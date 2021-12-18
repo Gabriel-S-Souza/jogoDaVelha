@@ -14,6 +14,7 @@ function setLogDeInformacoes(){
 
 var rodaJogo = (e) =>{
     var area = e.target
+    area.removeEventListener("click", rodaJogo)
     if(player1.boleano && !player2.boleano){
         area.classList.add('adicionaX')
         let id = parseInt(area.id)
@@ -97,6 +98,10 @@ function reinicia(){
             campo.classList.remove("adicionaOred")
         })
     },1500)
+    campos.forEach(function(campo){
+        campo.removeEventListener("click", rodaJogo)
+        campo.addEventListener("click", rodaJogo)
+    })
 }
 
 function colorWinner(i, j, k, player){
@@ -105,14 +110,12 @@ function colorWinner(i, j, k, player){
         if(campo.className.includes("adicionaX")){
             campo.classList.remove("adicionaX")
             campo.classList.add("adicionaXred")
-        }else if(campo.className.includes("adicionaO")){
+        }if(campo.className.includes("adicionaO")){
             campo.classList.remove("adicionaO")
             campo.classList.add("adicionaOred")
         }
     })
     logDeInformacoes.textContent = player.nome + " venceu"
 }
-
-
 
 setLogDeInformacoes()
