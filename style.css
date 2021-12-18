@@ -30,6 +30,7 @@ body{
     box-shadow: 0 0 15px #666;
     border-radius: 2%;
     overflow: hidden;  
+    cursor: pointer;
 }
 
 .campo{
@@ -66,14 +67,14 @@ body{
 
 .adicionaXred::after {
     content: "X";
-    color: red;
+    color: green;
     font-family: cursive;
     font-size: 80px;
 }
 
 .adicionaOred::after {
     content: "O";
-    color: red;
+    color: green;
     font-family: cursive;
     font-size: 80px;
 }
