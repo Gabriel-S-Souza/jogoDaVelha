@@ -1,2 +1,2 @@
 # jogoDaVelha
-Jogo da velha feito em JavsScript
+Jogo da velha feito em JavaScript
