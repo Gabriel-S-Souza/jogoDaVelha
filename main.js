@@ -77,8 +77,10 @@ campos.forEach(function(campo){
 })
 
 function reinicia(){
-    player1.listaIds = []
-    player2.listaIds = []
+    campos.forEach(function(campo){
+        campo.removeEventListener("click", rodaJogo)
+
+    })
     setTimeout(function(){
         setLogDeInformacoes()
         rodaJogo
@@ -87,12 +89,12 @@ function reinicia(){
             campo.classList.remove("adicionaXred")
             campo.classList.remove("adicionaO")
             campo.classList.remove("adicionaOred")
+            campo.addEventListener("click", rodaJogo)
+            player1.listaIds = []
+            player2.listaIds = []
         })
     },1500)
-    campos.forEach(function(campo){
-        campo.removeEventListener("click", rodaJogo)
-        campo.addEventListener("click", rodaJogo)
-    })
+    
 }
 
 function colorWinner(i, j, k, player){
