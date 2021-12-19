@@ -81,7 +81,16 @@ body{
     font-size: 160px;
 }
 
-.animateClass{
-    transform: scale(1.1);
+.animateWin{
+    transform: scale(1.15);
+    transition: transform 400ms cubic-bezier(0.47, 0.23, 0.21, 2.64);
+    cursor: pointer;;
     background-color: green;
+}
+
+.animateGameOver{
+    transform: scale(1.15);
+    transition: transform 400ms cubic-bezier(0.47, 0.23, 0.21, 2.64);
+    cursor: pointer;;
+    background-color: red;
 }

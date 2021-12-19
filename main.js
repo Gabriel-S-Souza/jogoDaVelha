@@ -5,7 +5,8 @@ var player2 = {boleano: false, listaIds: [], nome: "Player2"}
 var gameOver = false
 
 function setLogDeInformacoes(){
-    logDeInformacoes.classList.remove("animateClass")
+    logDeInformacoes.classList.remove("animateWin")
+    logDeInformacoes.classList.remove("animateGameOver")
     if(player1.boleano && !player2.boleano){
         logDeInformacoes.textContent = player1.nome + " joga"
     }else if(!player1.boleano && player2.boleano){
@@ -64,6 +65,7 @@ function validaJogo(player){
 
     if(player1.listaIds.length + player2.listaIds.length == 9){
         logDeInformacoes.textContent = "Game Over"
+        logDeInformacoes.classList.add("animateGameOver")
         return true
     }else{
         return false
@@ -105,7 +107,7 @@ function colorWinner(i, j, k, player){
         }
     })
     logDeInformacoes.textContent = player.nome + " venceu"
-    logDeInformacoes.classList.add("animateClass")
+    logDeInformacoes.classList.add("animateWin")
 }
 
 setLogDeInformacoes()
