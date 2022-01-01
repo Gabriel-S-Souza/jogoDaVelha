@@ -13,7 +13,7 @@ html {
 body {
     box-sizing: border-box;
     margin: auto;
-    margin-top: 2em;
+    margin-top: 1em;
     width: 600px;
     background-color: #fff;
     border: 1px solid #1F271B;
@@ -39,6 +39,7 @@ body {
     flex-wrap: wrap;
     width: 30em;
     height: 30em;
+    margin-bottom: 16px;
     overflow: hidden;  
     cursor: pointer;
 }
@@ -99,4 +100,9 @@ body {
     transition: transform 400ms cubic-bezier(0.47, 0.23, 0.21, 2.64);
     cursor: pointer;;
     background-color: red;
+}
+.hover:hover{
+    background-color: #1254680F;
+    width: 33.33%;
+    height: 33.33%;
 }
