@@ -25,6 +25,7 @@ body {
 .header, .log-de-informacoes{
     color: #000;
     margin: 16px;
+    text-shadow: 2px 2px 4px #00000077;
 }
 
 .log-de-informacoes{
@@ -63,46 +64,46 @@ body {
 .adicionaX::before {
     content: "X";
     color: #000;
-    font-family: cursive, Arial, sans-serif;
+    font-family:    cursive, "Lucida Console", monospace, Courier;
     font-size: 7em;
 }
 
 .adicionaO::before {
     content: "O";
     color: #000;
-    font-family: cursive, Arial, sans-serif;
+    font-family: cursive, "Lucida Console", monospace, Courier;
     font-size: 7em;
 }
 
 .adicionaXred::after {
     content: "X";
     color: green;
-    font-family: cursive, Arial, sans-serif;
+    font-family: cursive, "Lucida Console", monospace, Courier;
     font-size: 7em;
 }
 
 .adicionaOred::after {
     content: "O";
     color: green;
-    font-family: cursive, Arial, sans-serif;
+    font-family: cursive, "Lucida Console", monospace, Courier;
     font-size: 7em;
 }
 
 .animateWin{
-    transform: scale(1.15);
+    transform: scale(1.4);
     transition: transform 400ms cubic-bezier(0.47, 0.23, 0.21, 2.64);
-    cursor: pointer;;
-    background-color: green;
+    cursor: pointer;
+    color: green;
 }
 
 .animateGameOver{
-    transform: scale(1.15);
+    transform: scale(1.4);
     transition: transform 400ms cubic-bezier(0.47, 0.23, 0.21, 2.64);
-    cursor: pointer;;
-    background-color: red;
+    cursor: pointer;
+    color: red;
 }
 .hover:hover{
-    background-color: #1254680F;
+    background-color: #2d333511;
     width: 33.33%;
     height: 33.33%;
 }
