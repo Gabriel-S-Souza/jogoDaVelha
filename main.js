@@ -7,9 +7,9 @@ function setLogDeInformacoes(){
     logDeInformacoes.classList.remove("animateWin")
     logDeInformacoes.classList.remove("animateGameOver")
     if(player1.boleano && !player2.boleano){
-        logDeInformacoes.textContent = player1.nome + " joga"
+        logDeInformacoes.textContent = player1.nome + " joga agora"
     }else if(!player1.boleano && player2.boleano){
-        logDeInformacoes.textContent = player2.nome + " joga"
+        logDeInformacoes.textContent = player2.nome + " joga agora"
     } 
 }
 
