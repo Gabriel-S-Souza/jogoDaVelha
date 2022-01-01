@@ -7,7 +7,7 @@ html, body, main{
 }
 
 html {
-    background-color: #DCC7BE;
+    background-color: #D8E4FF;
     height: -webkit-fill-available;
 }
 
@@ -17,14 +17,14 @@ main {
     background-color: #fff;
     border: 1px solid #1F271B;
     border-radius: 8px;
-    box-shadow: 5px 5px 0 #1F271B;
+    box-shadow: 4px 4px 0 #31E981;
     font-family: monospace, Courier;
 }
 
 .header, .log-de-informacoes{
-    color: #000;
+    color: #00120B;
     margin: 8px 16px 16px;
-    text-shadow: 2px 2px 4px #00000077;
+    text-shadow: 2px 2px 4px #00120B77;
 }
 
 .log-de-informacoes{
@@ -51,13 +51,13 @@ main {
 }
 
 .vertical{
-    border-left: 8px solid #000;
-    border-right: 8px solid #000;
+    border-left: 8px solid #00120B;
+    border-right: 8px solid #00120B;
 }
 
 .horizontal{
-    border-top: 8px solid #000;
-    border-bottom: 8px solid #000;
+    border-top: 8px solid #00120B;
+    border-bottom: 8px solid #00120B;
 }
 
 .adicionaX::before {
@@ -76,14 +76,14 @@ main {
 
 .adicionaXred::after {
     content: "X";
-    color: green;
+    color: #31E981;
     font-family: cursive, "Lucida Console", monospace, Courier;
     font-size: 7em;
 }
 
 .adicionaOred::after {
     content: "O";
-    color: green;
+    color: #31E981;
     font-family: cursive, "Lucida Console", monospace, Courier;
     font-size: 7em;
 }
@@ -92,14 +92,14 @@ main {
     transform: scale(1.4);
     transition: transform 400ms cubic-bezier(0.47, 0.23, 0.21, 2.64);
     cursor: pointer;
-    color: green;
+    color: #1ac263;
 }
 
 .animateGameOver{
     transform: scale(1.4);
     transition: transform 400ms cubic-bezier(0.47, 0.23, 0.21, 2.64);
     cursor: pointer;
-    color: red;
+    color: #DB504A;
 }
 .hover:hover{
     background-color: #2d333511;
