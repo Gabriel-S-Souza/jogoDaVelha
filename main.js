@@ -1,7 +1,7 @@
 var logDeInformacoes = document.querySelector('.log-de-informacoes')
 var campos = document.querySelectorAll(".campo")
-var player1 = {boleano: true, listaIds: [], nome: "Player1"}
-var player2 = {boleano: false, listaIds: [], nome: "Player2"}
+var player1 = {boleano: true, listaIds: [], nome: "Player 1"}
+var player2 = {boleano: false, listaIds: [], nome: "Player 2"}
 
 function setLogDeInformacoes(){
     logDeInformacoes.classList.remove("animateWin")
