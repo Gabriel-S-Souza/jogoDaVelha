@@ -13,8 +13,6 @@ html {
 
 main {
     box-sizing: border-box;
-    margin: auto;
-    margin-top: 1em;
     width: 38em;
     background-color: #fff;
     border: 1px solid #1F271B;
