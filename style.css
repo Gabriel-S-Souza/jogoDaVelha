@@ -1,4 +1,4 @@
-html, body{
+html, body, main{
     display: flex;
     text-align: center;
     justify-content: center;
@@ -8,13 +8,14 @@ html, body{
 
 html {
     background-color: #DCC7BE;
+    height: -webkit-fill-available;
 }
 
-body {
+main {
     box-sizing: border-box;
     margin: auto;
     margin-top: 1em;
-    width: 600px;
+    width: 38em;
     background-color: #fff;
     border: 1px solid #1F271B;
     border-radius: 8px;
@@ -24,22 +25,22 @@ body {
 
 .header, .log-de-informacoes{
     color: #000;
-    margin: 16px;
+    margin: 8px 16px 16px;
     text-shadow: 2px 2px 4px #00000077;
 }
 
 .log-de-informacoes{
     box-sizing: border-box;
     height: 40px;
-    margin-bottom: 23px;
+    margin-bottom: 16px;
     font-family: "Lucida Console", Courier, monospace;
 }
 
 #conteiner{
     display: flex;   
     flex-wrap: wrap;
-    width: 30em;
-    height: 30em;
+    width: 34em;
+    height: 34em;
     margin-bottom: 16px;
     overflow: hidden;  
     cursor: pointer;
