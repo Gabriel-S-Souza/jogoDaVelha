@@ -46,7 +46,7 @@ function winValidation(player) {
         possivelVitoria.forEach(function(id) {
             if (player.idList.includes(id)) {
                 count++
-                if (count == 3) {
+                if (count == 3 && playerWin == null) {
                     animateWinner(...possivelVitoria, player)
                     playerWin = true
                 }
