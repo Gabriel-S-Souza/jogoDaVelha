@@ -1,37 +1,37 @@
-var logDeInformacoes = document.querySelector('.log-de-informacoes')
-var campos = document.querySelectorAll(".campo")
-var player1 = { boleano: true, listaIds: [], nome: "Player 1" }
-var player2 = { boleano: false, listaIds: [], nome: "Player 2" }
+var informationLog = document.querySelector('.log-de-informacoes')
+var fields = document.querySelectorAll(".campo")
+var player1 = { boolean: true, idList: [], name: "Player 1" }
+var player2 = { boolean: false, idList: [], name: "Player 2" }
 
-function setLogDeInformacoes() {
-    logDeInformacoes.classList.remove("animateWin")
-    logDeInformacoes.classList.remove("animateGameOver")
-    if (player1.boleano && !player2.boleano) {
-        logDeInformacoes.textContent = player1.nome + " joga agora"
-    } else if (!player1.boleano && player2.boleano) {
-        logDeInformacoes.textContent = player2.nome + " joga agora"
+function setInformationLog() {
+    informationLog.classList.remove("animateWin")
+    informationLog.classList.remove("animateGameOver")
+    if (player1.boolean && !player2.boolean) {
+        informationLog.textContent = player1.name + " joga agora"
+    } else if (!player1.boolean && player2.boolean) {
+        informationLog.textContent = player2.name + " joga agora"
     }
 }
 
-var rodaJogo = (e) => {
+var runGame = (e) => {
     var area = e.target
-    area.removeEventListener("click", rodaJogo)
-    if (player1.boleano && !player2.boleano) {
+    area.removeEventListener("click", runGame)
+    if (player1.boolean && !player2.boolean) {
         area.classList.add('adicionaX')
         let id = parseInt(area.id)
-        player1.listaIds.push(id)
-        player1.boleano = !player1.boleano
-        player2.boleano = !player2.boleano
+        player1.idList.push(id)
+        player1.boolean = !player1.boolean
+        player2.boolean = !player2.boolean
         let gameOver = winValidation(player1)
-        if (gameOver ? reinicia() : setLogDeInformacoes()) {}
-    } else if (!player1.boleano && player2.boleano) {
+        if (gameOver ? reinicia() : setInformationLog()) {}
+    } else if (!player1.boolean && player2.boolean) {
         area.classList.add('adicionaO')
         let id = parseInt(area.id)
-        player2.listaIds.push(id)
-        player1.boleano = !player1.boleano
-        player2.boleano = !player2.boleano
+        player2.idList.push(id)
+        player1.boolean = !player1.boolean
+        player2.boolean = !player2.boolean
         let gameOver = winValidation(player2)
-        if (gameOver ? reinicia() : setLogDeInformacoes()) {}
+        if (gameOver ? reinicia() : setInformationLog()) {}
     }
 }
 
@@ -44,7 +44,7 @@ function winValidation(player) {
     possiveisVitorias.forEach(function(possivelVitoria) {
         let count = 0
         possivelVitoria.forEach(function(id) {
-            if (player.listaIds.includes(id)) {
+            if (player.idList.includes(id)) {
                 count++
                 if (count == 3) {
                     animateWinner(...possivelVitoria, player)
@@ -57,44 +57,44 @@ function winValidation(player) {
 }
 
 function isGameOver() {
-    if (player1.listaIds.length + player2.listaIds.length == 9) {
-        logDeInformacoes.textContent = "Game Over"
-        logDeInformacoes.classList.add("animateGameOver")
+    if (player1.idList.length + player2.idList.length == 9) {
+        informationLog.textContent = "Game Over"
+        informationLog.classList.add("animateGameOver")
         return true
     } else return false
 }
 
-campos.forEach(function(campo) {
-    campo.addEventListener("click", rodaJogo)
+fields.forEach(function(campo) {
+    campo.addEventListener("click", runGame)
 })
 
 function reinicia() {
-    campos.forEach(function(campo) {
-        campo.removeEventListener("click", rodaJogo)
+    fields.forEach(function(campo) {
+        campo.removeEventListener("click", runGame)
     })
     setTimeout(function() {
-        setLogDeInformacoes()
-        campos.forEach(function(campo) {
+        setInformationLog()
+        fields.forEach(function(campo) {
             campo.classList.remove("adicionaX")
             campo.classList.remove("adicionaXred")
             campo.classList.remove("adicionaO")
             campo.classList.remove("adicionaOred")
-            campo.addEventListener("click", rodaJogo)
-            player1.listaIds = []
-            player2.listaIds = []
+            campo.addEventListener("click", runGame)
+            player1.idList = []
+            player2.idList = []
         })
     }, 1500)
 }
 
 function animateWinner(i, j, k, player) {
-    let camposVitoria = [campos[i], campos[j], campos[k]]
-    camposVitoria.forEach(function(campo) {
+    let fieldsVitoria = [fields[i], fields[j], fields[k]]
+    fieldsVitoria.forEach(function(campo) {
         let hasX = campo.className.includes("adicionaX")
         campo.classList.remove(hasX ? "adicionaX" : "adicionaO")
         campo.classList.add(hasX ? "adicionaXred" : "adicionaOred")
     })
-    logDeInformacoes.textContent = player.nome + " venceu"
-    logDeInformacoes.classList.add("animateWin")
+    informationLog.textContent = player.name + " venceu"
+    informationLog.classList.add("animateWin")
 }
 
-setLogDeInformacoes()
+setInformationLog()
