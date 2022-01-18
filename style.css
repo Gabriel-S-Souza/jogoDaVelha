@@ -48,6 +48,8 @@ main {
     box-sizing: border-box;
     width: 33.33%;
     height: 33.33%;
+    text-align: center;
+    vertical-align: center;
 }
 
 .vertical{
