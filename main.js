@@ -64,22 +64,22 @@ function isGameOver() {
     } else return false
 }
 
-fields.forEach(function(campo) {
-    campo.addEventListener("click", runGame)
+fields.forEach(function(field) {
+    field.addEventListener("click", runGame)
 })
 
 function reinicia() {
-    fields.forEach(function(campo) {
-        campo.removeEventListener("click", runGame)
+    fields.forEach(function(field) {
+        field.removeEventListener("click", runGame)
     })
     setTimeout(function() {
         setInformationLog()
-        fields.forEach(function(campo) {
-            campo.classList.remove("adicionaX")
-            campo.classList.remove("adicionaXred")
-            campo.classList.remove("adicionaO")
-            campo.classList.remove("adicionaOred")
-            campo.addEventListener("click", runGame)
+        fields.forEach(function(field) {
+            field.classList.remove("adicionaX")
+            field.classList.remove("adicionaXred")
+            field.classList.remove("adicionaO")
+            field.classList.remove("adicionaOred")
+            field.addEventListener("click", runGame)
             player1.idList = []
             player2.idList = []
         })
@@ -88,10 +88,10 @@ function reinicia() {
 
 function animateWinner(i, j, k, player) {
     let fieldsVitoria = [fields[i], fields[j], fields[k]]
-    fieldsVitoria.forEach(function(campo) {
-        let hasX = campo.className.includes("adicionaX")
-        campo.classList.remove(hasX ? "adicionaX" : "adicionaO")
-        campo.classList.add(hasX ? "adicionaXred" : "adicionaOred")
+    fieldsVitoria.forEach(function(field) {
+        let hasX = field.className.includes("adicionaX")
+        field.classList.remove(hasX ? "adicionaX" : "adicionaO")
+        field.classList.add(hasX ? "adicionaXred" : "adicionaOred")
     })
     informationLog.textContent = player.name + " venceu"
     informationLog.classList.add("animateWin")
