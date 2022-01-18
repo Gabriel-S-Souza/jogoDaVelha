@@ -65,28 +65,28 @@ main {
 .adicionaX::before {
     content: "X";
     color: #000;
-    font-family:    cursive, "Lucida Console", monospace, Courier;
+    font-family: 'Finger Paint', cursive;
     font-size: 7em;
 }
 
 .adicionaO::before {
     content: "O";
     color: #000;
-    font-family: cursive, "Lucida Console", monospace, Courier;
+   font-family: 'Finger Paint', cursive;
     font-size: 7em;
 }
 
 .adicionaXred::after {
     content: "X";
     color: #31E981;
-    font-family: cursive, "Lucida Console", monospace, Courier;
+   font-family: 'Finger Paint', cursive;
     font-size: 7em;
 }
 
 .adicionaOred::after {
     content: "O";
     color: #31E981;
-    font-family: cursive, "Lucida Console", monospace, Courier;
+   font-family: 'Finger Paint', cursive;
     font-size: 7em;
 }
 
